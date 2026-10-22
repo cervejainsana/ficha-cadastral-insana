@@ -78,7 +78,7 @@ footer{color:var(--muted);font-size:12px;text-align:center;margin-top:24px;}
 <div id="formView">
 <div class="kicker">Abertura de cliente</div>
 <h1>Ficha Cadastral</h1>
-<p class="intro">Preencha os dados do cliente e anexe os documentos. Comece pelo CNPJ: os dados da empresa são buscados automaticamente. A ficha vai direto para o faturamento da Insana.</p>
+<p class="intro">Preencha os dados do cliente e, se tiver, anexe os documentos. Comece pelo CNPJ: os dados da empresa são buscados automaticamente. A ficha vai direto para o faturamento da Insana.</p>
 
 <div class="err-box" id="errBox"></div>
 
@@ -176,11 +176,11 @@ footer{color:var(--muted);font-size:12px;text-align:center;margin-top:24px;}
 </div>
 
 <div class="card">
-  <h2><span>6</span>Documentos obrigatórios</h2>
-  <p class="hint">Foto ou PDF. Pode tirar a foto direto pelo celular.</p>
+  <h2><span>6</span>Documentos</h2>
+  <p class="hint">Opcional. Se tiver, anexe foto ou PDF (pode tirar a foto direto pelo celular).</p>
   <div class="files">
-    <label class="drop" data-file="cartao_cnpj"><input type="file" name="cartao_cnpj" accept="image/*,application/pdf"><b>Cartão CNPJ <span style="color:var(--lime)">*</span></b><small>Toque para anexar</small><div class="fname"></div></label>
-    <label class="drop" data-file="contrato_social"><input type="file" name="contrato_social" accept="image/*,application/pdf"><b>Contrato social <span style="color:var(--lime)">*</span></b><small>Última alteração consolidada</small><div class="fname"></div></label>
+    <label class="drop" data-file="cartao_cnpj"><input type="file" name="cartao_cnpj" accept="image/*,application/pdf"><b>Cartão CNPJ</b><small>Opcional · toque para anexar</small><div class="fname"></div></label>
+    <label class="drop" data-file="contrato_social"><input type="file" name="contrato_social" accept="image/*,application/pdf"><b>Contrato social</b><small>Opcional · última alteração consolidada</small><div class="fname"></div></label>
     <label class="drop" data-file="outros"><input type="file" name="outros" accept="image/*,application/pdf" multiple><b>Outros documentos</b><small>Opcional</small><div class="fname"></div></label>
   </div>
 </div>
@@ -306,8 +306,6 @@ function validar(){
   if(!f.produto.value) msgs.push("Escolha o produto (PET ou Barril).");
   if(f.produto.value.startsWith("PET") && !f.porte.value) msgs.push("Escolha o porte do cliente.");
   if(!f.tipo.value) msgs.push("Escolha o tipo de cliente.");
-  if(!f.cartao_cnpj.files.length) msgs.push("Anexe o Cartão CNPJ.");
-  if(!f.contrato_social.files.length) msgs.push("Anexe o Contrato Social.");
   return msgs;
 }
 f.addEventListener("submit", async ev => {
